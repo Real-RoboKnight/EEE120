@@ -1,8 +1,7 @@
 /**
  * @author Dylan Shah (code@dylan-shah.com)
- * @brief Creates stimulus
- * signals for testing digital designs for lab 1. Creates all the signals
- * possible when adding two 4-bit numbers.
+ * @brief Creates stimulus signals for testing digital designs for lab 1.
+ * Creates all the signals possible when adding two 4-bit numbers.
  * @version 0.1
  * @date 2026-01-26
  *
@@ -18,7 +17,7 @@
  *   GNU General Public License for more details.
  *
  *   You should have received a copy of the GNU General Public License
- *   along with this program.  If not, see <https:
+ *   along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
 
@@ -26,6 +25,7 @@
 #include <fstream>
 #include <iomanip>
 #include <iostream>
+#include <ostream>
 
 struct input_signals {
     uint8_t A   : 4;
@@ -39,6 +39,24 @@ struct output_signals {
     uint8_t OVERFLOW : 1;
 };
 
+/**
+ * @brief Format and output signals in Iverilog-compatible hexadecimal format
+ *
+ * Writes a single line containing the concatenated signal values in hexadecimal
+ * format: `[OVERFLOW|COUT][SUM][CIN][B][A]`
+ *
+ * @param os     Output stream where formatted signals will be written
+ * @param inputs Input signals (A, B, CIN) to be formatted
+ * @param outputs Output signals (SUM, COUT, OVERFLOW) to be formatted
+ *
+ * **Example Output:**
+ * ```
+ * 01234  // OVERFLOW=0, COUT=1, SUM=2, CIN=3, B=4, A=4
+ * ```
+ *
+ * @note Output format uses hexadecimal with no padding or delimiters
+ * @see input_signals, output_signals
+ */
 void print_signals(std::ostream&         os,
                    const input_signals&  inputs,
                    const output_signals& outputs) {
@@ -46,6 +64,11 @@ void print_signals(std::ostream&         os,
        << (outputs.OVERFLOW * 2 + outputs.COUT) << static_cast<int>(outputs.SUM)
        << static_cast<int>(inputs.CIN) << static_cast<int>(inputs.B)
        << static_cast<int>(inputs.A) << '\n';
+}
+
+std::ostream& operator<<(std::ostream& os, input_signals& inputs) {
+    os << inputs.A;
+    return os;
 }
 
 output_signals calculate_expected_output(const input_signals& inputs) {
