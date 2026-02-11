@@ -42,7 +42,7 @@ DOXYFILE_ENCODING      = UTF-8
 # title of most generated pages and in a few other places.
 # The default value is: My Project.
 
-PROJECT_NAME           = "Creating test cases for am adder"
+PROJECT_NAME           = "Creating test cases for an four bit adder"
 
 # The PROJECT_NUMBER tag can be used to enter a project or revision number. This
 # could be handy for archiving the generated documentation or if some version
@@ -79,7 +79,7 @@ OUTPUT_DIRECTORY       =./docs
 # control the number of sub-directories.
 # The default value is: NO.
 
-CREATE_SUBDIRS         = YES
+CREATE_SUBDIRS         = NO
 
 # Controls the number of sub-directories that will be created when
 # CREATE_SUBDIRS tag is set to YES. Level 0 represents 16 directories, and every
@@ -1158,7 +1158,7 @@ FILTER_SOURCE_PATTERNS =
 # (index.html). This can be useful if you have a project on for instance GitHub
 # and want to reuse the introduction page also for the doxygen output.
 
-USE_MDFILE_AS_MAINPAGE =
+USE_MDFILE_AS_MAINPAGE = README.md
 
 # The Fortran standard specifies that for fixed formatted Fortran code all
 # characters from position 72 are to be considered as comment. A common
@@ -1417,7 +1417,7 @@ HTML_EXTRA_FILES       =
 # AUTO_DARK automatically set the mode according to the user preference, use
 # dark mode if no preference is set and TOGGLE allow to user to switch between
 # light and dark mode via a button.
-# The default value is: AUTO_LIGHT.
+# The default value is: AUTO_DARK.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
 HTML_COLORSTYLE        = AUTO_DARK
@@ -1808,7 +1808,7 @@ FORMULA_MACROFILE      =
 # The default value is: NO.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-USE_MATHJAX            = NO
+USE_MATHJAX            = YES
 
 # With MATHJAX_VERSION it is possible to specify the MathJax version to be used.
 # Note that the different versions of MathJax have different requirements with

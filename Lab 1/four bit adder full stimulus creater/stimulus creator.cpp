@@ -1,26 +1,27 @@
 /**
+ * @file stimulus creator.cpp
  * @author Dylan Shah (code@dylan-shah.com)
  * @brief Creates stimulus signals for testing digital designs for lab 1.
  * Creates all the signals possible when adding two 4-bit numbers.
  * @version 0.1
  * @date 2026-01-26
- * 
+ *
  * @copyright Copyright (c) 2026
- *   
+ *
  * @parblock License
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
  *   (at your option) any later version.
- *   
+ *
  *   This program is distributed in the hope that it will be useful,
  *   but WITHOUT ANY WARRANTY; without even the implied warranty of
  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *   GNU General Public License for more details.
- *   
+ *
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <https://www.gnu.org/licenses/>.
- * @endparblock 
+ * @endparblock
  */
 
 #include <cstdint>
@@ -29,22 +30,21 @@
 #include <iostream>
 #include <ostream>
 
-
 /**
  * @class input_signals
- * @brief Stores the values that are going into the adder 
+ * @brief Stores the values that are going into the adder
  */
 struct input_signals {
     /**
-     * @brief One of the two opperands 
+     * @brief One of the two opperands
      */
-    uint8_t A   : 4;
+    uint8_t A : 4;
     /**
-     * @brief One of the two opperands 
+     * @brief One of the two opperands
      */
-    uint8_t B   : 4;
+    uint8_t B : 4;
     /**
-     * @brief A boolean that represents weather there is a carry in or not. 
+     * @brief A boolean that represents weather there is a carry in or not.
      */
     uint8_t CIN : 1;
 };
@@ -61,7 +61,7 @@ struct output_signals {
     /**
      * @brief Wether or not the *un*signed addition will overflow or not.
      */
-    uint8_t COUT     : 1;
+    uint8_t COUT : 1;
     /**
      * @brief Wether or not the signed addition will overflow or not.
      */
@@ -100,6 +100,12 @@ std::ostream& operator<<(std::ostream& os, input_signals& inputs) {
     return os;
 }
 
+/**
+ * @brief Hello
+ *
+ * @param inputs Hello
+ * @return output_signals
+ */
 output_signals calculate_expected_output(const input_signals& inputs) {
     output_signals outputs;
     uint8_t        full_sum = inputs.A + inputs.B + inputs.CIN;
