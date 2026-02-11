@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/robocat/Documents/Homework/EEE120/Lab 1/four bit adder full stimulus creater",
+  "command": "/usr/bin/c++   -std=gnu++23 -o CMakeFiles/stimulus_creator.dir/stimulus_creator.cpp.o -c \"/home/robocat/Documents/Homework/EEE120/Lab 1/four bit adder full stimulus creater/stimulus creator.cpp\"",
+  "file": "/home/robocat/Documents/Homework/EEE120/Lab 1/four bit adder full stimulus creater/stimulus creator.cpp",
+  "output": "CMakeFiles/stimulus_creator.dir/stimulus_creator.cpp.o"
+}
+]
