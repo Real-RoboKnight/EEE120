@@ -4,21 +4,23 @@
  * Creates all the signals possible when adding two 4-bit numbers.
  * @version 0.1
  * @date 2026-01-26
- *
- * @copyright Copyright Ⓒ 2026
+ * 
+ * @copyright Copyright (c) 2026
+ *   
+ * @parblock License
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
  *   (at your option) any later version.
- *
+ *   
  *   This program is distributed in the hope that it will be useful,
  *   but WITHOUT ANY WARRANTY; without even the implied warranty of
  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *   GNU General Public License for more details.
- *
+ *   
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <https://www.gnu.org/licenses/>.
- *
+ * @endparblock 
  */
 
 #include <cstdint>
@@ -27,15 +29,42 @@
 #include <iostream>
 #include <ostream>
 
+
+/**
+ * @class input_signals
+ * @brief Stores the values that are going into the adder 
+ */
 struct input_signals {
+    /**
+     * @brief One of the two opperands 
+     */
     uint8_t A   : 4;
+    /**
+     * @brief One of the two opperands 
+     */
     uint8_t B   : 4;
+    /**
+     * @brief A boolean that represents weather there is a carry in or not. 
+     */
     uint8_t CIN : 1;
 };
 
+/**
+ * @class output_signals
+ * @brief Stores the values that should come out of the adder
+ */
 struct output_signals {
-    uint8_t SUM      : 4;
+    /**
+     * @brief What the four bit sum will be
+     */
+    uint8_t SUM : 4;
+    /**
+     * @brief Wether or not the *un*signed addition will overflow or not.
+     */
     uint8_t COUT     : 1;
+    /**
+     * @brief Wether or not the signed addition will overflow or not.
+     */
     uint8_t OVERFLOW : 1;
 };
 
@@ -45,8 +74,8 @@ struct output_signals {
  * Writes a single line containing the concatenated signal values in hexadecimal
  * format: `[OVERFLOW|COUT][SUM][CIN][B][A]`
  *
- * @param os     Output stream where formatted signals will be written
- * @param inputs Input signals (A, B, CIN) to be formatted
+ * @param os      Output stream where formatted signals will be written
+ * @param inputs  Input signals (A, B, CIN) to be formatted
  * @param outputs Output signals (SUM, COUT, OVERFLOW) to be formatted
  *
  * **Example Output:**
