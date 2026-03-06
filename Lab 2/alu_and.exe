@@ -1,0 +1,693 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 9;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x57a132920ae0 .scope module, "alu_top" "alu_top" 2 4;
+ .timescale -9 -9;
+v0x57a132973be0_0 .var "addr", 2 0;
+v0x57a132973cc0_0 .net "cout", 0 0, L_0x57a132989850;  1 drivers
+v0x57a132973d60_0 .net "exp_cout", 0 0, L_0x57a1329851d0;  1 drivers
+v0x57a132973e00_0 .net "exp_overfl", 0 0, L_0x57a132985130;  1 drivers
+v0x57a132973ea0_0 .net "exp_y", 3 0, L_0x57a132985270;  1 drivers
+L_0x72bed52aa0a8 .functor BUFT 1, C4<00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000110000101101100011101010101111101100001011011100110010000101110011101100110001101100100>, C4<0>, C4<0>, C4<0>;
+v0x57a132973fd0_0 .net "filename", 511 0, L_0x72bed52aa0a8;  1 drivers
+v0x57a132974090_0 .net "in_a", 3 0, L_0x57a132985820;  1 drivers
+v0x57a132974180_0 .net "in_arith", 0 0, L_0x57a1329853e0;  1 drivers
+v0x57a132974330_0 .net "in_b", 3 0, L_0x57a132985910;  1 drivers
+v0x57a1329743f0_0 .net "in_cin", 0 0, L_0x57a132985310;  1 drivers
+v0x57a132974520_0 .net "in_invert", 0 0, L_0x57a132985480;  1 drivers
+v0x57a1329745c0_0 .net "in_pass", 0 0, L_0x57a132985670;  1 drivers
+v0x57a132974660_0 .var/i "index", 31 0;
+L_0x72bed52aa060 .functor BUFT 1, C4<0011>, C4<0>, C4<0>, C4<0>;
+v0x57a132974740_0 .net "num_tests", 3 0, L_0x72bed52aa060;  1 drivers
+v0x57a132974800_0 .net "overfl", 0 0, L_0x57a132989750;  1 drivers
+v0x57a1329748a0_0 .net "values", 17 0, L_0x57a132974d20;  1 drivers
+v0x57a132974940_0 .net "y", 3 0, L_0x57a13298d8b0;  1 drivers
+L_0x57a132985130 .part L_0x57a132974d20, 17, 1;
+L_0x57a1329851d0 .part L_0x57a132974d20, 16, 1;
+L_0x57a132985270 .part L_0x57a132974d20, 12, 4;
+L_0x57a132985310 .part L_0x57a132974d20, 11, 1;
+L_0x57a1329853e0 .part L_0x57a132974d20, 10, 1;
+L_0x57a132985480 .part L_0x57a132974d20, 9, 1;
+L_0x57a132985670 .part L_0x57a132974d20, 8, 1;
+L_0x57a132985820 .part L_0x57a132974d20, 4, 4;
+L_0x57a132985910 .part L_0x57a132974d20, 0, 4;
+S_0x57a1329392c0 .scope module, "alu" "alu" 2 62, 3 272 0, S_0x57a132920ae0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "a";
+    .port_info 1 /INPUT 1 "invert";
+    .port_info 2 /INPUT 4 "b";
+    .port_info 3 /INPUT 1 "arith";
+    .port_info 4 /INPUT 1 "cin";
+    .port_info 5 /INPUT 1 "pass";
+    .port_info 6 /OUTPUT 1 "cout";
+    .port_info 7 /OUTPUT 1 "overfl";
+    .port_info 8 /OUTPUT 4 "y";
+v0x57a1329728c0_0 .net "a", 3 0, L_0x57a132985820;  alias, 1 drivers
+v0x57a1329729a0_0 .net "arith", 0 0, L_0x57a1329853e0;  alias, 1 drivers
+v0x57a132972a40_0 .net "b", 3 0, L_0x57a132985910;  alias, 1 drivers
+v0x57a132972ae0_0 .net "cin", 0 0, L_0x57a132985310;  alias, 1 drivers
+v0x57a132972b80_0 .net "cout", 0 0, L_0x57a132989850;  alias, 1 drivers
+v0x57a132972cc0_0 .net "invert", 0 0, L_0x57a132985480;  alias, 1 drivers
+v0x57a132972d60_0 .net "overfl", 0 0, L_0x57a132989750;  alias, 1 drivers
+v0x57a132972e50_0 .net "pass", 0 0, L_0x57a132985670;  alias, 1 drivers
+v0x57a132972ef0_0 .net "s0", 3 0, L_0x57a132987090;  1 drivers
+v0x57a132973020_0 .net "y", 3 0, L_0x57a13298d8b0;  alias, 1 drivers
+S_0x57a132926420 .scope module, "and_add_i1" "and_add" 3 290, 3 233 0, S_0x57a1329392c0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "a";
+    .port_info 1 /INPUT 4 "b";
+    .port_info 2 /INPUT 1 "cin";
+    .port_info 3 /INPUT 1 "add";
+    .port_info 4 /INPUT 1 "pass";
+    .port_info 5 /OUTPUT 1 "cout";
+    .port_info 6 /OUTPUT 1 "overfl";
+    .port_info 7 /OUTPUT 4 "y";
+L_0x57a132989b60 .functor AND 1, L_0x57a132989a20, L_0x57a132989ac0, C4<1>, C4<1>;
+L_0x57a132989d10 .functor AND 1, L_0x57a132989bd0, L_0x57a132989c70, C4<1>, C4<1>;
+L_0x57a132989f50 .functor AND 1, L_0x57a132989dd0, L_0x57a132989e70, C4<1>, C4<1>;
+L_0x57a13298a3d0 .functor AND 1, L_0x57a13298a240, L_0x57a13298a330, C4<1>, C4<1>;
+v0x57a13296d970_0 .net *"_ivl_11", 0 0, L_0x57a132989bd0;  1 drivers
+v0x57a13296da10_0 .net *"_ivl_13", 0 0, L_0x57a132989c70;  1 drivers
+v0x57a13296dab0_0 .net *"_ivl_14", 0 0, L_0x57a132989d10;  1 drivers
+v0x57a13296db50_0 .net *"_ivl_19", 0 0, L_0x57a132989dd0;  1 drivers
+v0x57a13296dc10_0 .net *"_ivl_21", 0 0, L_0x57a132989e70;  1 drivers
+v0x57a13296dcf0_0 .net *"_ivl_22", 0 0, L_0x57a132989f50;  1 drivers
+v0x57a13296ddd0_0 .net *"_ivl_28", 0 0, L_0x57a13298a240;  1 drivers
+v0x57a13296deb0_0 .net *"_ivl_3", 0 0, L_0x57a132989a20;  1 drivers
+v0x57a13296df90_0 .net *"_ivl_30", 0 0, L_0x57a13298a330;  1 drivers
+v0x57a13296e100_0 .net *"_ivl_31", 0 0, L_0x57a13298a3d0;  1 drivers
+v0x57a13296e1e0_0 .net *"_ivl_5", 0 0, L_0x57a132989ac0;  1 drivers
+v0x57a13296e2c0_0 .net *"_ivl_6", 0 0, L_0x57a132989b60;  1 drivers
+v0x57a13296e3a0_0 .net "a", 3 0, L_0x57a132987090;  alias, 1 drivers
+v0x57a13296e460_0 .net "add", 0 0, L_0x57a1329853e0;  alias, 1 drivers
+v0x57a13296e500_0 .net "b", 3 0, L_0x57a132985910;  alias, 1 drivers
+v0x57a13296e5c0_0 .net "cin", 0 0, L_0x57a132985310;  alias, 1 drivers
+v0x57a13296e660_0 .net "cout", 0 0, L_0x57a132989850;  alias, 1 drivers
+v0x57a13296e810_0 .net "overfl", 0 0, L_0x57a132989750;  alias, 1 drivers
+v0x57a13296e8b0_0 .net "pass", 0 0, L_0x57a132985670;  alias, 1 drivers
+v0x57a13296e950_0 .net "s0", 3 0, L_0x57a132989500;  1 drivers
+v0x57a13296ea40_0 .net "s1", 3 0, L_0x57a13298a060;  1 drivers
+v0x57a13296eae0_0 .net "s2", 3 0, L_0x57a13298bce0;  1 drivers
+v0x57a13296ebd0_0 .net "y", 3 0, L_0x57a13298d8b0;  alias, 1 drivers
+L_0x57a132989a20 .part L_0x57a132987090, 0, 1;
+L_0x57a132989ac0 .part L_0x57a132985910, 0, 1;
+L_0x57a132989bd0 .part L_0x57a132987090, 1, 1;
+L_0x57a132989c70 .part L_0x57a132985910, 1, 1;
+L_0x57a132989dd0 .part L_0x57a132987090, 2, 1;
+L_0x57a132989e70 .part L_0x57a132985910, 2, 1;
+L_0x57a13298a060 .concat8 [ 1 1 1 1], L_0x57a132989b60, L_0x57a132989d10, L_0x57a132989f50, L_0x57a13298a3d0;
+L_0x57a13298a240 .part L_0x57a132987090, 3, 1;
+L_0x57a13298a330 .part L_0x57a132985910, 3, 1;
+S_0x57a13294afe0 .scope module, "four_bit_adder_i0" "four_bit_adder" 3 246, 3 100 0, S_0x57a132926420;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "a";
+    .port_info 1 /INPUT 4 "b";
+    .port_info 2 /INPUT 1 "cin";
+    .port_info 3 /OUTPUT 4 "y";
+    .port_info 4 /OUTPUT 1 "overfl";
+    .port_info 5 /OUTPUT 1 "cout";
+L_0x57a132989390 .functor BUFZ 1, L_0x57a132987bf0, C4<0>, C4<0>, C4<0>;
+L_0x57a132989400 .functor BUFZ 1, L_0x57a1329881b0, C4<0>, C4<0>, C4<0>;
+L_0x57a132989490 .functor BUFZ 1, L_0x57a132988750, C4<0>, C4<0>, C4<0>;
+L_0x57a132989690 .functor BUFZ 1, L_0x57a132988d80, C4<0>, C4<0>, C4<0>;
+L_0x57a132989750 .functor XOR 1, L_0x57a132988c50, L_0x57a132989280, C4<0>, C4<0>;
+L_0x57a132989850 .functor BUFZ 1, L_0x57a132989280, C4<0>, C4<0>, C4<0>;
+v0x57a132965710_0 .net *"_ivl_19", 0 0, L_0x57a132989390;  1 drivers
+v0x57a132965810_0 .net *"_ivl_23", 0 0, L_0x57a132989400;  1 drivers
+v0x57a1329658f0_0 .net *"_ivl_27", 0 0, L_0x57a132989490;  1 drivers
+v0x57a1329659b0_0 .net *"_ivl_32", 0 0, L_0x57a132989690;  1 drivers
+v0x57a132965a90_0 .net "a", 3 0, L_0x57a132987090;  alias, 1 drivers
+v0x57a132965b70_0 .net "b", 3 0, L_0x57a132985910;  alias, 1 drivers
+v0x57a132965c50_0 .net "cin", 0 0, L_0x57a132985310;  alias, 1 drivers
+v0x57a132965cf0_0 .net "cout", 0 0, L_0x57a132989850;  alias, 1 drivers
+v0x57a132965d90_0 .net "cout_temp", 0 0, L_0x57a132989280;  1 drivers
+v0x57a132965ef0_0 .net "overfl", 0 0, L_0x57a132989750;  alias, 1 drivers
+v0x57a132965f90_0 .net "s0", 0 0, L_0x57a1329871a0;  1 drivers
+v0x57a132966060_0 .net "s1", 0 0, L_0x57a132987240;  1 drivers
+v0x57a132966130_0 .net "s10", 0 0, L_0x57a1329881b0;  1 drivers
+v0x57a132966200_0 .net "s11", 0 0, L_0x57a132988620;  1 drivers
+v0x57a1329662a0_0 .net "s12", 0 0, L_0x57a132988750;  1 drivers
+v0x57a132966340_0 .net "s13", 0 0, L_0x57a132988c50;  1 drivers
+v0x57a132966430_0 .net "s14", 0 0, L_0x57a132988d80;  1 drivers
+v0x57a1329664d0_0 .net "s2", 0 0, L_0x57a132987440;  1 drivers
+v0x57a1329665a0_0 .net "s3", 0 0, L_0x57a132987530;  1 drivers
+v0x57a132966670_0 .net "s4", 0 0, L_0x57a132987620;  1 drivers
+v0x57a132966740_0 .net "s5", 0 0, L_0x57a132987710;  1 drivers
+v0x57a132966810_0 .net "s6", 0 0, L_0x57a132987840;  1 drivers
+v0x57a1329668e0_0 .net "s7", 0 0, L_0x57a132987930;  1 drivers
+v0x57a1329669b0_0 .net "s8", 0 0, L_0x57a132987bf0;  1 drivers
+v0x57a132966a80_0 .net "s9", 0 0, L_0x57a132988030;  1 drivers
+v0x57a132966b70_0 .net "y", 3 0, L_0x57a132989500;  alias, 1 drivers
+L_0x57a1329871a0 .part L_0x57a132987090, 0, 1;
+L_0x57a132987240 .part L_0x57a132987090, 1, 1;
+L_0x57a132987440 .part L_0x57a132987090, 2, 1;
+L_0x57a132987530 .part L_0x57a132987090, 3, 1;
+L_0x57a132987620 .part L_0x57a132985910, 0, 1;
+L_0x57a132987710 .part L_0x57a132985910, 1, 1;
+L_0x57a132987840 .part L_0x57a132985910, 2, 1;
+L_0x57a132987930 .part L_0x57a132985910, 3, 1;
+L_0x57a132989500 .concat8 [ 1 1 1 1], L_0x57a132989390, L_0x57a132989400, L_0x57a132989490, L_0x57a132989690;
+S_0x57a132949fa0 .scope module, "full_adder_i0" "full_adder" 3 132, 3 89 0, S_0x57a13294afe0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /INPUT 1 "cin";
+    .port_info 3 /OUTPUT 1 "sum";
+    .port_info 4 /OUTPUT 1 "cout";
+L_0x57a132987b80 .functor XOR 1, L_0x57a1329871a0, L_0x57a132987620, C4<0>, C4<0>;
+L_0x57a132987bf0 .functor XOR 1, L_0x57a132987b80, L_0x57a132985310, C4<0>, C4<0>;
+L_0x57a132987d00 .functor AND 1, L_0x57a132987620, L_0x57a132985310, C4<1>, C4<1>;
+L_0x57a132987d90 .functor AND 1, L_0x57a132985310, L_0x57a1329871a0, C4<1>, C4<1>;
+L_0x57a132987f10 .functor OR 1, L_0x57a132987d00, L_0x57a132987d90, C4<0>, C4<0>;
+L_0x57a132987f80 .functor AND 1, L_0x57a132987620, L_0x57a1329871a0, C4<1>, C4<1>;
+L_0x57a132988030 .functor OR 1, L_0x57a132987f10, L_0x57a132987f80, C4<0>, C4<0>;
+v0x57a13294bf60_0 .net *"_ivl_0", 0 0, L_0x57a132987b80;  1 drivers
+v0x57a13294baa0_0 .net *"_ivl_10", 0 0, L_0x57a132987f80;  1 drivers
+v0x57a13294b660_0 .net *"_ivl_4", 0 0, L_0x57a132987d00;  1 drivers
+v0x57a132962f30_0 .net *"_ivl_6", 0 0, L_0x57a132987d90;  1 drivers
+v0x57a132963010_0 .net *"_ivl_8", 0 0, L_0x57a132987f10;  1 drivers
+v0x57a132963140_0 .net "a", 0 0, L_0x57a1329871a0;  alias, 1 drivers
+v0x57a132963200_0 .net "b", 0 0, L_0x57a132987620;  alias, 1 drivers
+v0x57a1329632c0_0 .net "cin", 0 0, L_0x57a132985310;  alias, 1 drivers
+v0x57a132963380_0 .net "cout", 0 0, L_0x57a132988030;  alias, 1 drivers
+v0x57a132963440_0 .net "sum", 0 0, L_0x57a132987bf0;  alias, 1 drivers
+S_0x57a1329635a0 .scope module, "full_adder_i1" "full_adder" 3 139, 3 89 0, S_0x57a13294afe0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /INPUT 1 "cin";
+    .port_info 3 /OUTPUT 1 "sum";
+    .port_info 4 /OUTPUT 1 "cout";
+L_0x57a132988140 .functor XOR 1, L_0x57a132987240, L_0x57a132987710, C4<0>, C4<0>;
+L_0x57a1329881b0 .functor XOR 1, L_0x57a132988140, L_0x57a132988030, C4<0>, C4<0>;
+L_0x57a1329882e0 .functor AND 1, L_0x57a132987710, L_0x57a132988030, C4<1>, C4<1>;
+L_0x57a132988400 .functor AND 1, L_0x57a132988030, L_0x57a132987240, C4<1>, C4<1>;
+L_0x57a132988500 .functor OR 1, L_0x57a1329882e0, L_0x57a132988400, C4<0>, C4<0>;
+L_0x57a132988570 .functor AND 1, L_0x57a132987710, L_0x57a132987240, C4<1>, C4<1>;
+L_0x57a132988620 .functor OR 1, L_0x57a132988500, L_0x57a132988570, C4<0>, C4<0>;
+v0x57a132963750_0 .net *"_ivl_0", 0 0, L_0x57a132988140;  1 drivers
+v0x57a132963830_0 .net *"_ivl_10", 0 0, L_0x57a132988570;  1 drivers
+v0x57a132963910_0 .net *"_ivl_4", 0 0, L_0x57a1329882e0;  1 drivers
+v0x57a1329639d0_0 .net *"_ivl_6", 0 0, L_0x57a132988400;  1 drivers
+v0x57a132963ab0_0 .net *"_ivl_8", 0 0, L_0x57a132988500;  1 drivers
+v0x57a132963be0_0 .net "a", 0 0, L_0x57a132987240;  alias, 1 drivers
+v0x57a132963ca0_0 .net "b", 0 0, L_0x57a132987710;  alias, 1 drivers
+v0x57a132963d60_0 .net "cin", 0 0, L_0x57a132988030;  alias, 1 drivers
+v0x57a132963e00_0 .net "cout", 0 0, L_0x57a132988620;  alias, 1 drivers
+v0x57a132963f30_0 .net "sum", 0 0, L_0x57a1329881b0;  alias, 1 drivers
+S_0x57a132964090 .scope module, "full_adder_i2" "full_adder" 3 146, 3 89 0, S_0x57a13294afe0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /INPUT 1 "cin";
+    .port_info 3 /OUTPUT 1 "sum";
+    .port_info 4 /OUTPUT 1 "cout";
+L_0x57a1329886e0 .functor XOR 1, L_0x57a132987440, L_0x57a132987840, C4<0>, C4<0>;
+L_0x57a132988750 .functor XOR 1, L_0x57a1329886e0, L_0x57a132988620, C4<0>, C4<0>;
+L_0x57a132988910 .functor AND 1, L_0x57a132987840, L_0x57a132988620, C4<1>, C4<1>;
+L_0x57a132988a30 .functor AND 1, L_0x57a132988620, L_0x57a132987440, C4<1>, C4<1>;
+L_0x57a132988b30 .functor OR 1, L_0x57a132988910, L_0x57a132988a30, C4<0>, C4<0>;
+L_0x57a132988ba0 .functor AND 1, L_0x57a132987840, L_0x57a132987440, C4<1>, C4<1>;
+L_0x57a132988c50 .functor OR 1, L_0x57a132988b30, L_0x57a132988ba0, C4<0>, C4<0>;
+v0x57a132964220_0 .net *"_ivl_0", 0 0, L_0x57a1329886e0;  1 drivers
+v0x57a132964300_0 .net *"_ivl_10", 0 0, L_0x57a132988ba0;  1 drivers
+v0x57a1329643e0_0 .net *"_ivl_4", 0 0, L_0x57a132988910;  1 drivers
+v0x57a1329644d0_0 .net *"_ivl_6", 0 0, L_0x57a132988a30;  1 drivers
+v0x57a1329645b0_0 .net *"_ivl_8", 0 0, L_0x57a132988b30;  1 drivers
+v0x57a1329646e0_0 .net "a", 0 0, L_0x57a132987440;  alias, 1 drivers
+v0x57a1329647a0_0 .net "b", 0 0, L_0x57a132987840;  alias, 1 drivers
+v0x57a132964860_0 .net "cin", 0 0, L_0x57a132988620;  alias, 1 drivers
+v0x57a132964900_0 .net "cout", 0 0, L_0x57a132988c50;  alias, 1 drivers
+v0x57a132964a30_0 .net "sum", 0 0, L_0x57a132988750;  alias, 1 drivers
+S_0x57a132964bc0 .scope module, "full_adder_i3" "full_adder" 3 153, 3 89 0, S_0x57a13294afe0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /INPUT 1 "cin";
+    .port_info 3 /OUTPUT 1 "sum";
+    .port_info 4 /OUTPUT 1 "cout";
+L_0x57a132988d10 .functor XOR 1, L_0x57a132987530, L_0x57a132987930, C4<0>, C4<0>;
+L_0x57a132988d80 .functor XOR 1, L_0x57a132988d10, L_0x57a132988c50, C4<0>, C4<0>;
+L_0x57a132988f40 .functor AND 1, L_0x57a132987930, L_0x57a132988c50, C4<1>, C4<1>;
+L_0x57a132989060 .functor AND 1, L_0x57a132988c50, L_0x57a132987530, C4<1>, C4<1>;
+L_0x57a132989160 .functor OR 1, L_0x57a132988f40, L_0x57a132989060, C4<0>, C4<0>;
+L_0x57a1329891d0 .functor AND 1, L_0x57a132987930, L_0x57a132987530, C4<1>, C4<1>;
+L_0x57a132989280 .functor OR 1, L_0x57a132989160, L_0x57a1329891d0, C4<0>, C4<0>;
+v0x57a132964d50_0 .net *"_ivl_0", 0 0, L_0x57a132988d10;  1 drivers
+v0x57a132964e50_0 .net *"_ivl_10", 0 0, L_0x57a1329891d0;  1 drivers
+v0x57a132964f30_0 .net *"_ivl_4", 0 0, L_0x57a132988f40;  1 drivers
+v0x57a132965020_0 .net *"_ivl_6", 0 0, L_0x57a132989060;  1 drivers
+v0x57a132965100_0 .net *"_ivl_8", 0 0, L_0x57a132989160;  1 drivers
+v0x57a132965230_0 .net "a", 0 0, L_0x57a132987530;  alias, 1 drivers
+v0x57a1329652f0_0 .net "b", 0 0, L_0x57a132987930;  alias, 1 drivers
+v0x57a1329653b0_0 .net "cin", 0 0, L_0x57a132988c50;  alias, 1 drivers
+v0x57a132965450_0 .net "cout", 0 0, L_0x57a132989280;  alias, 1 drivers
+v0x57a132965580_0 .net "sum", 0 0, L_0x57a132988d80;  alias, 1 drivers
+S_0x57a132966c10 .scope module, "four_bit_mux_i1" "four_bit_mux" 3 258, 3 177 0, S_0x57a132926420;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "a";
+    .port_info 1 /INPUT 4 "b";
+    .port_info 2 /INPUT 1 "sel";
+    .port_info 3 /OUTPUT 4 "y";
+L_0x57a13298bb90 .functor BUFZ 1, L_0x57a13298af20, C4<0>, C4<0>, C4<0>;
+L_0x57a13298bc00 .functor BUFZ 1, L_0x57a13298b220, C4<0>, C4<0>, C4<0>;
+L_0x57a13298bc70 .functor BUFZ 1, L_0x57a13298b730, C4<0>, C4<0>, C4<0>;
+L_0x57a13298be70 .functor BUFZ 1, L_0x57a13298ba30, C4<0>, C4<0>, C4<0>;
+v0x57a1329691d0_0 .net *"_ivl_19", 0 0, L_0x57a13298bb90;  1 drivers
+v0x57a1329692d0_0 .net *"_ivl_23", 0 0, L_0x57a13298bc00;  1 drivers
+v0x57a1329693b0_0 .net *"_ivl_27", 0 0, L_0x57a13298bc70;  1 drivers
+v0x57a132969470_0 .net *"_ivl_32", 0 0, L_0x57a13298be70;  1 drivers
+v0x57a132969550_0 .net "a", 3 0, L_0x57a13298a060;  alias, 1 drivers
+v0x57a132969680_0 .net "b", 3 0, L_0x57a132989500;  alias, 1 drivers
+v0x57a132969740_0 .net "s0", 0 0, L_0x57a13298a530;  1 drivers
+v0x57a132969810_0 .net "s1", 0 0, L_0x57a13298a620;  1 drivers
+v0x57a1329698e0_0 .net "s10", 0 0, L_0x57a13298b730;  1 drivers
+v0x57a1329699b0_0 .net "s11", 0 0, L_0x57a13298ba30;  1 drivers
+v0x57a132969a80_0 .net "s2", 0 0, L_0x57a13298a7a0;  1 drivers
+v0x57a132969b50_0 .net "s3", 0 0, L_0x57a13298a840;  1 drivers
+v0x57a132969c20_0 .net "s4", 0 0, L_0x57a13298a930;  1 drivers
+v0x57a132969cf0_0 .net "s5", 0 0, L_0x57a13298aab0;  1 drivers
+v0x57a132969dc0_0 .net "s6", 0 0, L_0x57a13298ab50;  1 drivers
+v0x57a132969e90_0 .net "s7", 0 0, L_0x57a13298ac40;  1 drivers
+v0x57a132969f60_0 .net "s8", 0 0, L_0x57a13298af20;  1 drivers
+v0x57a13296a030_0 .net "s9", 0 0, L_0x57a13298b220;  1 drivers
+v0x57a13296a100_0 .net "sel", 0 0, L_0x57a1329853e0;  alias, 1 drivers
+v0x57a13296a1a0_0 .net "y", 3 0, L_0x57a13298bce0;  alias, 1 drivers
+L_0x57a13298a530 .part L_0x57a13298a060, 0, 1;
+L_0x57a13298a620 .part L_0x57a13298a060, 1, 1;
+L_0x57a13298a7a0 .part L_0x57a13298a060, 2, 1;
+L_0x57a13298a840 .part L_0x57a13298a060, 3, 1;
+L_0x57a13298a930 .part L_0x57a132989500, 0, 1;
+L_0x57a13298aab0 .part L_0x57a132989500, 1, 1;
+L_0x57a13298ab50 .part L_0x57a132989500, 2, 1;
+L_0x57a13298ac40 .part L_0x57a132989500, 3, 1;
+L_0x57a13298bce0 .concat8 [ 1 1 1 1], L_0x57a13298bb90, L_0x57a13298bc00, L_0x57a13298bc70, L_0x57a13298be70;
+S_0x57a132966e60 .scope module, "two_bit_mux_i0" "two_bit_mux" 3 203, 3 168 0, S_0x57a132966c10;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /INPUT 1 "s";
+    .port_info 3 /OUTPUT 1 "y";
+L_0x57a13298ad80 .functor NOT 1, L_0x57a1329853e0, C4<0>, C4<0>, C4<0>;
+L_0x57a13298adf0 .functor AND 1, L_0x57a13298a530, L_0x57a13298ad80, C4<1>, C4<1>;
+L_0x57a13298aeb0 .functor AND 1, L_0x57a1329853e0, L_0x57a13298a930, C4<1>, C4<1>;
+L_0x57a13298af20 .functor OR 1, L_0x57a13298adf0, L_0x57a13298aeb0, C4<0>, C4<0>;
+v0x57a1329670e0_0 .net *"_ivl_0", 0 0, L_0x57a13298ad80;  1 drivers
+v0x57a132967180_0 .net *"_ivl_2", 0 0, L_0x57a13298adf0;  1 drivers
+v0x57a132967260_0 .net *"_ivl_4", 0 0, L_0x57a13298aeb0;  1 drivers
+v0x57a132967350_0 .net "a", 0 0, L_0x57a13298a530;  alias, 1 drivers
+v0x57a132967410_0 .net "b", 0 0, L_0x57a13298a930;  alias, 1 drivers
+v0x57a132967520_0 .net "s", 0 0, L_0x57a1329853e0;  alias, 1 drivers
+v0x57a1329675e0_0 .net "y", 0 0, L_0x57a13298af20;  alias, 1 drivers
+S_0x57a132967720 .scope module, "two_bit_mux_i1" "two_bit_mux" 3 209, 3 168 0, S_0x57a132966c10;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /INPUT 1 "s";
+    .port_info 3 /OUTPUT 1 "y";
+L_0x57a13298b080 .functor NOT 1, L_0x57a1329853e0, C4<0>, C4<0>, C4<0>;
+L_0x57a13298b0f0 .functor AND 1, L_0x57a13298a620, L_0x57a13298b080, C4<1>, C4<1>;
+L_0x57a13298b1b0 .functor AND 1, L_0x57a1329853e0, L_0x57a13298aab0, C4<1>, C4<1>;
+L_0x57a13298b220 .functor OR 1, L_0x57a13298b0f0, L_0x57a13298b1b0, C4<0>, C4<0>;
+v0x57a132967990_0 .net *"_ivl_0", 0 0, L_0x57a13298b080;  1 drivers
+v0x57a132967a70_0 .net *"_ivl_2", 0 0, L_0x57a13298b0f0;  1 drivers
+v0x57a132967b50_0 .net *"_ivl_4", 0 0, L_0x57a13298b1b0;  1 drivers
+v0x57a132967c40_0 .net "a", 0 0, L_0x57a13298a620;  alias, 1 drivers
+v0x57a132967d00_0 .net "b", 0 0, L_0x57a13298aab0;  alias, 1 drivers
+v0x57a132967e10_0 .net "s", 0 0, L_0x57a1329853e0;  alias, 1 drivers
+v0x57a132967eb0_0 .net "y", 0 0, L_0x57a13298b220;  alias, 1 drivers
+S_0x57a132968000 .scope module, "two_bit_mux_i2" "two_bit_mux" 3 215, 3 168 0, S_0x57a132966c10;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /INPUT 1 "s";
+    .port_info 3 /OUTPUT 1 "y";
+L_0x57a13298b380 .functor NOT 1, L_0x57a1329853e0, C4<0>, C4<0>, C4<0>;
+L_0x57a13298b3f0 .functor AND 1, L_0x57a13298a7a0, L_0x57a13298b380, C4<1>, C4<1>;
+L_0x57a13298b4b0 .functor AND 1, L_0x57a1329853e0, L_0x57a13298ab50, C4<1>, C4<1>;
+L_0x57a13298b730 .functor OR 1, L_0x57a13298b3f0, L_0x57a13298b4b0, C4<0>, C4<0>;
+v0x57a132968280_0 .net *"_ivl_0", 0 0, L_0x57a13298b380;  1 drivers
+v0x57a132968360_0 .net *"_ivl_2", 0 0, L_0x57a13298b3f0;  1 drivers
+v0x57a132968440_0 .net *"_ivl_4", 0 0, L_0x57a13298b4b0;  1 drivers
+v0x57a132968530_0 .net "a", 0 0, L_0x57a13298a7a0;  alias, 1 drivers
+v0x57a1329685f0_0 .net "b", 0 0, L_0x57a13298ab50;  alias, 1 drivers
+v0x57a132968700_0 .net "s", 0 0, L_0x57a1329853e0;  alias, 1 drivers
+v0x57a1329687f0_0 .net "y", 0 0, L_0x57a13298b730;  alias, 1 drivers
+S_0x57a132968930 .scope module, "two_bit_mux_i3" "two_bit_mux" 3 221, 3 168 0, S_0x57a132966c10;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /INPUT 1 "s";
+    .port_info 3 /OUTPUT 1 "y";
+L_0x57a13298b890 .functor NOT 1, L_0x57a1329853e0, C4<0>, C4<0>, C4<0>;
+L_0x57a13298b900 .functor AND 1, L_0x57a13298a840, L_0x57a13298b890, C4<1>, C4<1>;
+L_0x57a13298b9c0 .functor AND 1, L_0x57a1329853e0, L_0x57a13298ac40, C4<1>, C4<1>;
+L_0x57a13298ba30 .functor OR 1, L_0x57a13298b900, L_0x57a13298b9c0, C4<0>, C4<0>;
+v0x57a132968b80_0 .net *"_ivl_0", 0 0, L_0x57a13298b890;  1 drivers
+v0x57a132968c80_0 .net *"_ivl_2", 0 0, L_0x57a13298b900;  1 drivers
+v0x57a132968d60_0 .net *"_ivl_4", 0 0, L_0x57a13298b9c0;  1 drivers
+v0x57a132968e20_0 .net "a", 0 0, L_0x57a13298a840;  alias, 1 drivers
+v0x57a132968ee0_0 .net "b", 0 0, L_0x57a13298ac40;  alias, 1 drivers
+v0x57a132968ff0_0 .net "s", 0 0, L_0x57a1329853e0;  alias, 1 drivers
+v0x57a132969090_0 .net "y", 0 0, L_0x57a13298ba30;  alias, 1 drivers
+S_0x57a13296a270 .scope module, "four_bit_mux_i2" "four_bit_mux" 3 264, 3 177 0, S_0x57a132926420;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "a";
+    .port_info 1 /INPUT 4 "b";
+    .port_info 2 /INPUT 1 "sel";
+    .port_info 3 /OUTPUT 4 "y";
+L_0x57a13298d760 .functor BUFZ 1, L_0x57a13298caf0, C4<0>, C4<0>, C4<0>;
+L_0x57a13298d7d0 .functor BUFZ 1, L_0x57a13298cdf0, C4<0>, C4<0>, C4<0>;
+L_0x57a13298d840 .functor BUFZ 1, L_0x57a13298d0f0, C4<0>, C4<0>, C4<0>;
+L_0x57a13298da80 .functor BUFZ 1, L_0x57a13298d600, C4<0>, C4<0>, C4<0>;
+v0x57a13296c740_0 .net *"_ivl_19", 0 0, L_0x57a13298d760;  1 drivers
+v0x57a13296c840_0 .net *"_ivl_23", 0 0, L_0x57a13298d7d0;  1 drivers
+v0x57a13296c920_0 .net *"_ivl_27", 0 0, L_0x57a13298d840;  1 drivers
+v0x57a13296c9e0_0 .net *"_ivl_32", 0 0, L_0x57a13298da80;  1 drivers
+v0x57a13296cac0_0 .net "a", 3 0, L_0x57a13298bce0;  alias, 1 drivers
+v0x57a13296cbd0_0 .net "b", 3 0, L_0x57a132987090;  alias, 1 drivers
+v0x57a13296cca0_0 .net "s0", 0 0, L_0x57a13298bf30;  1 drivers
+v0x57a13296cd70_0 .net "s1", 0 0, L_0x57a13298c0b0;  1 drivers
+v0x57a13296ce40_0 .net "s10", 0 0, L_0x57a13298d0f0;  1 drivers
+v0x57a13296cfa0_0 .net "s11", 0 0, L_0x57a13298d600;  1 drivers
+v0x57a13296d070_0 .net "s2", 0 0, L_0x57a13298c150;  1 drivers
+v0x57a13296d140_0 .net "s3", 0 0, L_0x57a13298c240;  1 drivers
+v0x57a13296d210_0 .net "s4", 0 0, L_0x57a13298c330;  1 drivers
+v0x57a13296d2e0_0 .net "s5", 0 0, L_0x57a13298c420;  1 drivers
+v0x57a13296d3b0_0 .net "s6", 0 0, L_0x57a13298c720;  1 drivers
+v0x57a13296d480_0 .net "s7", 0 0, L_0x57a13298c810;  1 drivers
+v0x57a13296d550_0 .net "s8", 0 0, L_0x57a13298caf0;  1 drivers
+v0x57a13296d730_0 .net "s9", 0 0, L_0x57a13298cdf0;  1 drivers
+v0x57a13296d800_0 .net "sel", 0 0, L_0x57a132985670;  alias, 1 drivers
+v0x57a13296d8a0_0 .net "y", 3 0, L_0x57a13298d8b0;  alias, 1 drivers
+L_0x57a13298bf30 .part L_0x57a13298bce0, 0, 1;
+L_0x57a13298c0b0 .part L_0x57a13298bce0, 1, 1;
+L_0x57a13298c150 .part L_0x57a13298bce0, 2, 1;
+L_0x57a13298c240 .part L_0x57a13298bce0, 3, 1;
+L_0x57a13298c330 .part L_0x57a132987090, 0, 1;
+L_0x57a13298c420 .part L_0x57a132987090, 1, 1;
+L_0x57a13298c720 .part L_0x57a132987090, 2, 1;
+L_0x57a13298c810 .part L_0x57a132987090, 3, 1;
+L_0x57a13298d8b0 .concat8 [ 1 1 1 1], L_0x57a13298d760, L_0x57a13298d7d0, L_0x57a13298d840, L_0x57a13298da80;
+S_0x57a13296a4a0 .scope module, "two_bit_mux_i0" "two_bit_mux" 3 203, 3 168 0, S_0x57a13296a270;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /INPUT 1 "s";
+    .port_info 3 /OUTPUT 1 "y";
+L_0x57a13298c950 .functor NOT 1, L_0x57a132985670, C4<0>, C4<0>, C4<0>;
+L_0x57a13298c9c0 .functor AND 1, L_0x57a13298bf30, L_0x57a13298c950, C4<1>, C4<1>;
+L_0x57a13298ca80 .functor AND 1, L_0x57a132985670, L_0x57a13298c330, C4<1>, C4<1>;
+L_0x57a13298caf0 .functor OR 1, L_0x57a13298c9c0, L_0x57a13298ca80, C4<0>, C4<0>;
+v0x57a13296a6d0_0 .net *"_ivl_0", 0 0, L_0x57a13298c950;  1 drivers
+v0x57a13296a770_0 .net *"_ivl_2", 0 0, L_0x57a13298c9c0;  1 drivers
+v0x57a13296a810_0 .net *"_ivl_4", 0 0, L_0x57a13298ca80;  1 drivers
+v0x57a13296a8e0_0 .net "a", 0 0, L_0x57a13298bf30;  alias, 1 drivers
+v0x57a13296a980_0 .net "b", 0 0, L_0x57a13298c330;  alias, 1 drivers
+v0x57a13296aa90_0 .net "s", 0 0, L_0x57a132985670;  alias, 1 drivers
+v0x57a13296ab50_0 .net "y", 0 0, L_0x57a13298caf0;  alias, 1 drivers
+S_0x57a13296ac90 .scope module, "two_bit_mux_i1" "two_bit_mux" 3 209, 3 168 0, S_0x57a13296a270;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /INPUT 1 "s";
+    .port_info 3 /OUTPUT 1 "y";
+L_0x57a13298cc50 .functor NOT 1, L_0x57a132985670, C4<0>, C4<0>, C4<0>;
+L_0x57a13298ccc0 .functor AND 1, L_0x57a13298c0b0, L_0x57a13298cc50, C4<1>, C4<1>;
+L_0x57a13298cd80 .functor AND 1, L_0x57a132985670, L_0x57a13298c420, C4<1>, C4<1>;
+L_0x57a13298cdf0 .functor OR 1, L_0x57a13298ccc0, L_0x57a13298cd80, C4<0>, C4<0>;
+v0x57a13296af00_0 .net *"_ivl_0", 0 0, L_0x57a13298cc50;  1 drivers
+v0x57a13296afe0_0 .net *"_ivl_2", 0 0, L_0x57a13298ccc0;  1 drivers
+v0x57a13296b0c0_0 .net *"_ivl_4", 0 0, L_0x57a13298cd80;  1 drivers
+v0x57a13296b1b0_0 .net "a", 0 0, L_0x57a13298c0b0;  alias, 1 drivers
+v0x57a13296b270_0 .net "b", 0 0, L_0x57a13298c420;  alias, 1 drivers
+v0x57a13296b380_0 .net "s", 0 0, L_0x57a132985670;  alias, 1 drivers
+v0x57a13296b420_0 .net "y", 0 0, L_0x57a13298cdf0;  alias, 1 drivers
+S_0x57a13296b570 .scope module, "two_bit_mux_i2" "two_bit_mux" 3 215, 3 168 0, S_0x57a13296a270;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /INPUT 1 "s";
+    .port_info 3 /OUTPUT 1 "y";
+L_0x57a13298cf50 .functor NOT 1, L_0x57a132985670, C4<0>, C4<0>, C4<0>;
+L_0x57a13298cfc0 .functor AND 1, L_0x57a13298c150, L_0x57a13298cf50, C4<1>, C4<1>;
+L_0x57a13298d080 .functor AND 1, L_0x57a132985670, L_0x57a13298c720, C4<1>, C4<1>;
+L_0x57a13298d0f0 .functor OR 1, L_0x57a13298cfc0, L_0x57a13298d080, C4<0>, C4<0>;
+v0x57a13296b7f0_0 .net *"_ivl_0", 0 0, L_0x57a13298cf50;  1 drivers
+v0x57a13296b8d0_0 .net *"_ivl_2", 0 0, L_0x57a13298cfc0;  1 drivers
+v0x57a13296b9b0_0 .net *"_ivl_4", 0 0, L_0x57a13298d080;  1 drivers
+v0x57a13296baa0_0 .net "a", 0 0, L_0x57a13298c150;  alias, 1 drivers
+v0x57a13296bb60_0 .net "b", 0 0, L_0x57a13298c720;  alias, 1 drivers
+v0x57a13296bc70_0 .net "s", 0 0, L_0x57a132985670;  alias, 1 drivers
+v0x57a13296bd60_0 .net "y", 0 0, L_0x57a13298d0f0;  alias, 1 drivers
+S_0x57a13296bea0 .scope module, "two_bit_mux_i3" "two_bit_mux" 3 221, 3 168 0, S_0x57a13296a270;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /INPUT 1 "s";
+    .port_info 3 /OUTPUT 1 "y";
+L_0x57a13298d250 .functor NOT 1, L_0x57a132985670, C4<0>, C4<0>, C4<0>;
+L_0x57a13298d2c0 .functor AND 1, L_0x57a13298c240, L_0x57a13298d250, C4<1>, C4<1>;
+L_0x57a13298d380 .functor AND 1, L_0x57a132985670, L_0x57a13298c810, C4<1>, C4<1>;
+L_0x57a13298d600 .functor OR 1, L_0x57a13298d2c0, L_0x57a13298d380, C4<0>, C4<0>;
+v0x57a13296c0f0_0 .net *"_ivl_0", 0 0, L_0x57a13298d250;  1 drivers
+v0x57a13296c1f0_0 .net *"_ivl_2", 0 0, L_0x57a13298d2c0;  1 drivers
+v0x57a13296c2d0_0 .net *"_ivl_4", 0 0, L_0x57a13298d380;  1 drivers
+v0x57a13296c390_0 .net "a", 0 0, L_0x57a13298c240;  alias, 1 drivers
+v0x57a13296c450_0 .net "b", 0 0, L_0x57a13298c810;  alias, 1 drivers
+v0x57a13296c560_0 .net "s", 0 0, L_0x57a132985670;  alias, 1 drivers
+v0x57a13296c600_0 .net "y", 0 0, L_0x57a13298d600;  alias, 1 drivers
+S_0x57a13296eda0 .scope module, "not_neg_i0" "not_neg" 3 284, 3 67 0, S_0x57a1329392c0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "a";
+    .port_info 1 /INPUT 1 "invert";
+    .port_info 2 /INPUT 1 "neg";
+    .port_info 3 /OUTPUT 4 "y";
+    .port_info 4 /OUTPUT 1 "cry";
+L_0x57a1329859b0 .functor AND 1, L_0x57a132985480, L_0x57a1329853e0, C4<1>, C4<1>;
+L_0x57a132985b50 .functor XOR 1, L_0x57a132985a20, L_0x57a132985480, C4<0>, C4<0>;
+L_0x57a132985c60 .functor XOR 1, L_0x57a132985bc0, L_0x57a132985480, C4<0>, C4<0>;
+L_0x57a132985d70 .functor XOR 1, L_0x57a132985cd0, L_0x57a132985480, C4<0>, C4<0>;
+L_0x57a1329860a0 .functor XOR 1, L_0x57a132986000, L_0x57a132985480, C4<0>, C4<0>;
+v0x57a132971bb0_0 .net *"_ivl_11", 0 0, L_0x57a132985bc0;  1 drivers
+v0x57a132971c50_0 .net *"_ivl_12", 0 0, L_0x57a132985c60;  1 drivers
+v0x57a132971cf0_0 .net *"_ivl_17", 0 0, L_0x57a132985cd0;  1 drivers
+v0x57a132971db0_0 .net *"_ivl_18", 0 0, L_0x57a132985d70;  1 drivers
+v0x57a132971e90_0 .net *"_ivl_24", 0 0, L_0x57a132986000;  1 drivers
+v0x57a132971fc0_0 .net *"_ivl_25", 0 0, L_0x57a1329860a0;  1 drivers
+v0x57a1329720a0_0 .net *"_ivl_5", 0 0, L_0x57a132985a20;  1 drivers
+v0x57a132972180_0 .net *"_ivl_6", 0 0, L_0x57a132985b50;  1 drivers
+v0x57a132972260_0 .net "a", 3 0, L_0x57a132985820;  alias, 1 drivers
+v0x57a132972340_0 .net "cry", 0 0, L_0x57a132986de0;  1 drivers
+v0x57a1329723e0_0 .net "invert", 0 0, L_0x57a132985480;  alias, 1 drivers
+v0x57a1329724a0_0 .net "neg", 0 0, L_0x57a1329853e0;  alias, 1 drivers
+v0x57a132972540_0 .net "s0", 0 0, L_0x57a1329859b0;  1 drivers
+v0x57a132972630_0 .net "s1", 3 0, L_0x57a132985e40;  1 drivers
+v0x57a1329726f0_0 .net "y", 3 0, L_0x57a132987090;  alias, 1 drivers
+L_0x57a132985a20 .part L_0x57a132985820, 0, 1;
+L_0x57a132985bc0 .part L_0x57a132985820, 1, 1;
+L_0x57a132985cd0 .part L_0x57a132985820, 2, 1;
+L_0x57a132985e40 .concat8 [ 1 1 1 1], L_0x57a132985b50, L_0x57a132985c60, L_0x57a132985d70, L_0x57a1329860a0;
+L_0x57a132986000 .part L_0x57a132985820, 3, 1;
+S_0x57a13296efd0 .scope module, "incrementer_i0" "incrementer" 3 81, 3 16 0, S_0x57a13296eda0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "inc";
+    .port_info 1 /INPUT 4 "a";
+    .port_info 2 /OUTPUT 4 "y";
+    .port_info 3 /OUTPUT 1 "cry";
+L_0x57a132986f00 .functor BUFZ 1, L_0x57a132986ca0, C4<0>, C4<0>, C4<0>;
+L_0x57a132986f90 .functor BUFZ 1, L_0x57a132986a80, C4<0>, C4<0>, C4<0>;
+L_0x57a132987020 .functor BUFZ 1, L_0x57a132986880, C4<0>, C4<0>, C4<0>;
+L_0x57a132987130 .functor BUFZ 1, L_0x57a132986630, C4<0>, C4<0>, C4<0>;
+v0x57a132970b40_0 .net *"_ivl_11", 0 0, L_0x57a132986f00;  1 drivers
+v0x57a132970c40_0 .net *"_ivl_15", 0 0, L_0x57a132986f90;  1 drivers
+v0x57a132970d20_0 .net *"_ivl_19", 0 0, L_0x57a132987020;  1 drivers
+v0x57a132970de0_0 .net *"_ivl_24", 0 0, L_0x57a132987130;  1 drivers
+v0x57a132970ec0_0 .net "a", 3 0, L_0x57a132985e40;  alias, 1 drivers
+v0x57a132970ff0_0 .net "cry", 0 0, L_0x57a132986de0;  alias, 1 drivers
+v0x57a132971090_0 .net "inc", 0 0, L_0x57a1329859b0;  alias, 1 drivers
+v0x57a132971160_0 .net "s0", 0 0, L_0x57a132986780;  1 drivers
+v0x57a132971250_0 .net "s1", 0 0, L_0x57a1329864a0;  1 drivers
+v0x57a1329712f0_0 .net "s10", 0 0, L_0x57a132986630;  1 drivers
+v0x57a1329713c0_0 .net "s2", 0 0, L_0x57a132986880;  1 drivers
+v0x57a132971490_0 .net "s3", 0 0, L_0x57a132986980;  1 drivers
+v0x57a132971530_0 .net "s4", 0 0, L_0x57a1329862c0;  1 drivers
+v0x57a1329715d0_0 .net "s5", 0 0, L_0x57a1329863b0;  1 drivers
+v0x57a1329716a0_0 .net "s6", 0 0, L_0x57a132986540;  1 drivers
+v0x57a132971770_0 .net "s7", 0 0, L_0x57a132986a80;  1 drivers
+v0x57a132971840_0 .net "s8", 0 0, L_0x57a132986b80;  1 drivers
+v0x57a132971a40_0 .net "s9", 0 0, L_0x57a132986ca0;  1 drivers
+v0x57a132971ae0_0 .net "y", 3 0, L_0x57a132987090;  alias, 1 drivers
+L_0x57a1329862c0 .part L_0x57a132985e40, 3, 1;
+L_0x57a1329863b0 .part L_0x57a132985e40, 2, 1;
+L_0x57a1329864a0 .part L_0x57a132985e40, 1, 1;
+L_0x57a132986540 .part L_0x57a132985e40, 0, 1;
+L_0x57a132987090 .concat8 [ 1 1 1 1], L_0x57a132987130, L_0x57a132987020, L_0x57a132986f90, L_0x57a132986f00;
+S_0x57a13296f250 .scope module, "half_adder_i0" "half_adder" 3 37, 3 6 0, S_0x57a13296efd0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "sum";
+    .port_info 3 /OUTPUT 1 "cry";
+L_0x57a132986630 .functor XOR 1, L_0x57a132986540, L_0x57a1329859b0, C4<0>, C4<0>;
+L_0x57a132986780 .functor AND 1, L_0x57a132986540, L_0x57a1329859b0, C4<1>, C4<1>;
+v0x57a13296f4f0_0 .net "a", 0 0, L_0x57a132986540;  alias, 1 drivers
+v0x57a13296f5d0_0 .net "b", 0 0, L_0x57a1329859b0;  alias, 1 drivers
+v0x57a13296f690_0 .net "cry", 0 0, L_0x57a132986780;  alias, 1 drivers
+v0x57a13296f760_0 .net "sum", 0 0, L_0x57a132986630;  alias, 1 drivers
+S_0x57a13296f8d0 .scope module, "half_adder_i1" "half_adder" 3 43, 3 6 0, S_0x57a13296efd0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "sum";
+    .port_info 3 /OUTPUT 1 "cry";
+L_0x57a132986880 .functor XOR 1, L_0x57a132986780, L_0x57a1329864a0, C4<0>, C4<0>;
+L_0x57a132986980 .functor AND 1, L_0x57a132986780, L_0x57a1329864a0, C4<1>, C4<1>;
+v0x57a13296fb40_0 .net "a", 0 0, L_0x57a132986780;  alias, 1 drivers
+v0x57a13296fc10_0 .net "b", 0 0, L_0x57a1329864a0;  alias, 1 drivers
+v0x57a13296fcb0_0 .net "cry", 0 0, L_0x57a132986980;  alias, 1 drivers
+v0x57a13296fd80_0 .net "sum", 0 0, L_0x57a132986880;  alias, 1 drivers
+S_0x57a13296fef0 .scope module, "half_adder_i2" "half_adder" 3 49, 3 6 0, S_0x57a13296efd0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "sum";
+    .port_info 3 /OUTPUT 1 "cry";
+L_0x57a132986a80 .functor XOR 1, L_0x57a132986980, L_0x57a1329863b0, C4<0>, C4<0>;
+L_0x57a132986b80 .functor AND 1, L_0x57a132986980, L_0x57a1329863b0, C4<1>, C4<1>;
+v0x57a132970170_0 .net "a", 0 0, L_0x57a132986980;  alias, 1 drivers
+v0x57a132970240_0 .net "b", 0 0, L_0x57a1329863b0;  alias, 1 drivers
+v0x57a1329702e0_0 .net "cry", 0 0, L_0x57a132986b80;  alias, 1 drivers
+v0x57a1329703b0_0 .net "sum", 0 0, L_0x57a132986a80;  alias, 1 drivers
+S_0x57a132970520 .scope module, "half_adder_i3" "half_adder" 3 55, 3 6 0, S_0x57a13296efd0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "sum";
+    .port_info 3 /OUTPUT 1 "cry";
+L_0x57a132986ca0 .functor XOR 1, L_0x57a132986b80, L_0x57a1329862c0, C4<0>, C4<0>;
+L_0x57a132986de0 .functor AND 1, L_0x57a132986b80, L_0x57a1329862c0, C4<1>, C4<1>;
+v0x57a132970770_0 .net "a", 0 0, L_0x57a132986b80;  alias, 1 drivers
+v0x57a132970860_0 .net "b", 0 0, L_0x57a1329862c0;  alias, 1 drivers
+v0x57a132970900_0 .net "cry", 0 0, L_0x57a132986de0;  alias, 1 drivers
+v0x57a1329709d0_0 .net "sum", 0 0, L_0x57a132986ca0;  alias, 1 drivers
+S_0x57a132973230 .scope module, "my_test" "my_test" 2 28, 4 6 0, S_0x57a132920ae0;
+ .timescale -9 -9;
+    .port_info 0 /OUTPUT 4 "num_tests";
+    .port_info 1 /OUTPUT 18 "values";
+    .port_info 2 /INPUT 3 "addr";
+    .port_info 3 /OUTPUT 512 "filename";
+L_0x57a132974d20 .functor BUFZ 18, L_0x57a132974af0, C4<000000000000000000>, C4<000000000000000000>, C4<000000000000000000>;
+v0x57a132973450_0 .net *"_ivl_0", 17 0, L_0x57a132974af0;  1 drivers
+v0x57a132973530_0 .net *"_ivl_2", 4 0, L_0x57a132974be0;  1 drivers
+L_0x72bed52aa018 .functor BUFT 1, C4<00>, C4<0>, C4<0>, C4<0>;
+v0x57a132973610_0 .net *"_ivl_5", 1 0, L_0x72bed52aa018;  1 drivers
+v0x57a1329736d0_0 .net "addr", 2 0, v0x57a132973be0_0;  1 drivers
+v0x57a1329737b0_0 .net "filename", 511 0, L_0x72bed52aa0a8;  alias, 1 drivers
+v0x57a1329738e0_0 .net "num_tests", 3 0, L_0x72bed52aa060;  alias, 1 drivers
+v0x57a1329739c0 .array "test_vals", 7 0, 17 0;
+v0x57a132973a80_0 .net "values", 17 0, L_0x57a132974d20;  alias, 1 drivers
+L_0x57a132974af0 .array/port v0x57a1329739c0, L_0x57a132974be0;
+L_0x57a132974be0 .concat [ 3 2 0 0], v0x57a132973be0_0, L_0x72bed52aa018;
+    .scope S_0x57a132973230;
+T_0 ;
+    %delay 1, 0;
+    %load/vec4 v0x57a1329738e0_0;
+    %pad/u 32;
+    %cmpi/u 8, 0, 32;
+    %flag_or 5, 4; GT is !LE
+    %flag_inv 5;
+    %jmp/0xz  T_0.0, 5;
+    %vpi_call 4 30 "$display", "Too many tests - the limit is 8!" {0 0 0};
+    %vpi_call 4 31 "$finish" {0 0 0};
+T_0.0 ;
+    %end;
+    .thread T_0;
+    .scope S_0x57a132973230;
+T_1 ;
+    %pushi/vec4 90, 0, 18;
+    %ix/load 4, 0, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4a v0x57a1329739c0, 4, 0;
+    %pushi/vec4 61695, 0, 18;
+    %ix/load 4, 1, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4a v0x57a1329739c0, 4, 0;
+    %pushi/vec4 12411, 0, 18;
+    %ix/load 4, 2, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4a v0x57a1329739c0, 4, 0;
+    %end;
+    .thread T_1;
+    .scope S_0x57a132920ae0;
+T_2 ;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x57a132974660_0, 0, 32;
+T_2.0 ;
+    %load/vec4 v0x57a132974660_0;
+    %load/vec4 v0x57a132974740_0;
+    %pad/u 32;
+    %cmp/u;
+    %jmp/0xz T_2.1, 5;
+    %load/vec4 v0x57a132974660_0;
+    %parti/s 3, 0, 2;
+    %store/vec4 v0x57a132973be0_0, 0, 3;
+    %delay 5, 0;
+    %load/vec4 v0x57a132974940_0;
+    %load/vec4 v0x57a132973ea0_0;
+    %cmp/ne;
+    %jmp/0xz  T_2.2, 4;
+    %vpi_call 2 47 "$display", "Output mismatch for entry ", v0x57a132974660_0, " expected Y to be ", v0x57a132973ea0_0, " but got ", v0x57a132974940_0 {0 0 0};
+T_2.2 ;
+    %load/vec4 v0x57a132974180_0;
+    %cmpi/e 1, 0, 1;
+    %flag_get/vec4 4;
+    %jmp/0 T_2.6, 4;
+    %load/vec4 v0x57a1329745c0_0;
+    %pushi/vec4 0, 0, 1;
+    %cmp/e;
+    %flag_get/vec4 4;
+    %and;
+T_2.6;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_2.4, 8;
+    %load/vec4 v0x57a132974800_0;
+    %load/vec4 v0x57a132973e00_0;
+    %cmp/ne;
+    %jmp/0xz  T_2.7, 4;
+    %vpi_call 2 52 "$display", "Output mismatch for entry ", v0x57a132974660_0, " expected overfl to be ", v0x57a132973e00_0, " but got ", v0x57a132974800_0 {0 0 0};
+T_2.7 ;
+    %load/vec4 v0x57a132973cc0_0;
+    %load/vec4 v0x57a132973d60_0;
+    %cmp/ne;
+    %jmp/0xz  T_2.9, 4;
+    %vpi_call 2 55 "$display", "Output mismatch for entry ", v0x57a132974660_0, " expected Cout to be ", v0x57a132973d60_0, " but got ", v0x57a132973cc0_0 {0 0 0};
+T_2.9 ;
+T_2.4 ;
+    %delay 5, 0;
+    %load/vec4 v0x57a132974660_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x57a132974660_0, 0, 32;
+    %jmp T_2.0;
+T_2.1 ;
+    %end;
+    .thread T_2;
+    .scope S_0x57a132920ae0;
+T_3 ;
+    %vpi_call 2 68 "$dumpfile", v0x57a132973fd0_0 {0 0 0};
+    %vpi_call 2 69 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x57a1329392c0 {0 0 0};
+    %end;
+    .thread T_3;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "alu_top.v";
+    "alu.v";
+    "alu_and.v";

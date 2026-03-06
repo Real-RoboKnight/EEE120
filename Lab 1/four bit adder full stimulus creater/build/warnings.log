@@ -1,0 +1,3 @@
+error: /usr/include/wchar.h:35:10: fatal error: 'stddef.h' file not found [clang]
+/home/robocat/Documents/Homework/EEE120/Lab 1/four bit adder full stimulus creater/stimulus creator.cpp:2: warning: the name 'stimulus' supplied as the argument in the \file statement is not an input file
+error: /usr/include/wchar.h:35:10: fatal error: 'stddef.h' file not found [clang]

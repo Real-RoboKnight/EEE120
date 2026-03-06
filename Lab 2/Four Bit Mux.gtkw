@@ -1,0 +1,35 @@
+[*]
+[*] GTKWave Analyzer v3.3.116 (w)1999-2023 BSI
+[*] Thu Feb 19 21:34:56 2026
+[*]
+[dumpfile] "/home/robocat/remote/Documents/Homework/EEE120/Lab 2/four_bit_mux_waves.vcd"
+[dumpfile_mtime] "Thu Feb 19 21:30:57 2026"
+[dumpfile_size] 1467
+[savefile] "/home/robocat/remote/Documents/Homework/EEE120/Lab 2/Four Bit Mux.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*-4.712243 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] four_bit_mux_top.
+[treeopen] four_bit_mux_top.four_bit_mux.
+[sst_width] 278
+[signals_width] 118
+[sst_expanded] 1
+[sst_vpaned_height] 157
+@22
+four_bit_mux_top.four_bit_mux.a[3:0]
+four_bit_mux_top.four_bit_mux.b[3:0]
+@28
+four_bit_mux_top.four_bit_mux.sel
+@22
+four_bit_mux_top.four_bit_mux.y[3:0]
+@200
+-
+-2 Bit Mux 1
+@28
+four_bit_mux_top.four_bit_mux.two_bit_mux_i0.a
+four_bit_mux_top.four_bit_mux.two_bit_mux_i0.b
+four_bit_mux_top.four_bit_mux.two_bit_mux_i0.s
+four_bit_mux_top.four_bit_mux.two_bit_mux_i0.y
+[pattern_trace] 1
+[pattern_trace] 0

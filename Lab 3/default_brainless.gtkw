@@ -1,0 +1,46 @@
+[*]
+[*] GTKWave Analyzer v3.3.116 (w)1999-2023 BSI
+[*] Fri Mar  6 06:28:10 2026
+[*]
+[dumpfile] "/home/robocat/Documents/Homework/EEE120/Lab 3/brainless_waves.vcd"
+[dumpfile_mtime] "Fri Mar  6 06:25:37 2026"
+[dumpfile_size] 13273
+[savefile] "/home/robocat/Documents/Homework/EEE120/Lab 3/default_brainless.gtkw"
+[timestart] 0
+[size] 1000 1344
+[pos] -1 -1
+*-4.691385 31 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] brainless_top.
+[treeopen] brainless_top.brainless.
+[sst_width] 269
+[signals_width] 134
+[sst_expanded] 1
+[sst_vpaned_height] 415
+@28
+brainless_top.brainless.clk
+brainless_top.brainless.reset
+@200
+-
+@22
+brainless_top.brainless.data_in[3:0]
+brainless_top.brainless.addr_bus[3:0]
+@200
+-
+@28
+brainless_top.brainless.invert
+brainless_top.brainless.arith
+brainless_top.brainless.pass
+@200
+-
+@28
+brainless_top.brainless.write
+brainless_top.brainless.read
+@200
+-
+@22
+brainless_top.brainless.accum[3:0]
+brainless_top.brainless.data_bus[3:0]
+@23
+brainless_top.brainless.alu_out[3:0]
+[pattern_trace] 1
+[pattern_trace] 0

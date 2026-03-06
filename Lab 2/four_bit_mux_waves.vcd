@@ -1,0 +1,135 @@
+$date
+	Thu Feb 19 14:30:57 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module four_bit_mux_top $end
+$scope module four_bit_mux $end
+$var wire 4 ! a [3:0] $end
+$var wire 4 " b [3:0] $end
+$var wire 1 # sel $end
+$var wire 4 $ y [3:0] $end
+$var wire 1 % s9 $end
+$var wire 1 & s8 $end
+$var wire 1 ' s7 $end
+$var wire 1 ( s6 $end
+$var wire 1 ) s5 $end
+$var wire 1 * s4 $end
+$var wire 1 + s3 $end
+$var wire 1 , s2 $end
+$var wire 1 - s11 $end
+$var wire 1 . s10 $end
+$var wire 1 / s1 $end
+$var wire 1 0 s0 $end
+$scope module two_bit_mux_i0 $end
+$var wire 1 0 a $end
+$var wire 1 * b $end
+$var wire 1 # s $end
+$var wire 1 & y $end
+$upscope $end
+$scope module two_bit_mux_i1 $end
+$var wire 1 / a $end
+$var wire 1 ) b $end
+$var wire 1 # s $end
+$var wire 1 % y $end
+$upscope $end
+$scope module two_bit_mux_i2 $end
+$var wire 1 , a $end
+$var wire 1 ( b $end
+$var wire 1 # s $end
+$var wire 1 . y $end
+$upscope $end
+$scope module two_bit_mux_i3 $end
+$var wire 1 + a $end
+$var wire 1 ' b $end
+$var wire 1 # s $end
+$var wire 1 - y $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+10
+0/
+0.
+0-
+0,
+0+
+0*
+0)
+0(
+0'
+1&
+0%
+b1 $
+0#
+b0 "
+b1 !
+$end
+#10
+00
+1*
+1#
+b0 !
+b1 "
+#20
+b0 $
+0&
+0*
+b0 "
+#30
+1&
+1%
+1.
+b1111 $
+1-
+1*
+1)
+1(
+1'
+b1111 "
+#40
+10
+1/
+1,
+1+
+0*
+0)
+0(
+0'
+0#
+b1111 !
+b0 "
+#50
+1*
+1(
+1'
+b1101 "
+#60
+0/
+1)
+1#
+b1101 !
+b1111 "
+#70
+0&
+0%
+b1000 $
+0.
+00
+0,
+0+
+0*
+0)
+0(
+b0 !
+b1000 "
+#80
