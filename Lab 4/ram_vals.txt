@@ -1,0 +1,23 @@
+0// Load ACC
+3//   value to load
+1// ADD ACC
+5//   value to add
+//After 4 clocks (40-50ms), accum = 0x8
+4 //ZERO
+//Two clocks later (60-70ms) accum = 0x0
+5//Subtract
+4//   value to subtract
+//After 2 more clocks (80-90ms) accum = -4 = 0xC
+6//Store that value in a the param of the next command
+B //Address of the `F` below
+//After 3 more clocks (110-120ms) mem adress 0xB is now a C
+4 //Zero the accum in middle, to show it clears.
+//Two clocks later (130-140ms) accum = 0x0
+0 // Move the output of the storage command to the acc
+F // THIS WILL BE REPLACED BY THE STORAGE COMMAND
+//Two clocks later (150-150ms) accum = 0xC
+//should be 0xC if set worked, 0xF if failed.
+2// STOP
+0
+0
+0

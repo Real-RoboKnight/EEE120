@@ -1,0 +1,17 @@
+7 // Store the data on the data bus in accum.
+7 // Store the data on the data bus in accum.
+7 // Store the data on the data bus in accum.
+2 //STOP
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
