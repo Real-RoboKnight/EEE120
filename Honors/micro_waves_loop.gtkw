@@ -1,0 +1,62 @@
+[*]
+[*] GTKWave Analyzer v3.3.116 (w)1999-2023 BSI
+[*] Wed Apr 15 14:04:15 2026
+[*]
+[dumpfile] "/home/robocat/Documents/Homework/EEE120/Honors/micro_waves.vcd"
+[dumpfile_mtime] "Wed Apr 15 14:03:04 2026"
+[dumpfile_size] 52012
+[savefile] "/home/robocat/Documents/Homework/EEE120/Honors/micro_waves_loop.gtkw"
+[timestart] 0
+[size] 1255 643
+[pos] -1 -1
+*-5.781784 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] micro_top.
+[treeopen] micro_top.microprocessor.
+[sst_width] 37
+[signals_width] 174
+[sst_expanded] 0
+[sst_vpaned_height] 172
+@28
+micro_top.microprocessor.clk
+micro_top.microprocessor.reset
+@200
+-Controller
+@28
+micro_top.microprocessor.controller_i1.load_ir
+@22
+micro_top.microprocessor.controller_i1.instr_reg[3:0]
+@28
+micro_top.microprocessor.controller_i1.step_reg[1:0]
+@22
+micro_top.microprocessor.controller_i1.rom_out[13:0]
+@200
+-Address Gen
+@22
+micro_top.microprocessor.addr_gen_i0.addr_bus[3:0]
+@28
+micro_top.microprocessor.addr_gen_i0.use_pc
+@22
+micro_top.microprocessor.addr_gen_i0.pc[3:0]
+@28
+micro_top.microprocessor.addr_gen_i0.load_mar
+@22
+micro_top.microprocessor.addr_gen_i0.mar[3:0]
+@200
+-Brainless
+@22
+micro_top.microprocessor.brainless_i2.accum[3:0]
+micro_top.microprocessor.brainless_i2.alu_out[3:0]
+micro_top.microprocessor.brainless_i2.data_bus[3:0]
+@28
+micro_top.microprocessor.brainless_i2.arith
+micro_top.microprocessor.brainless_i2.invert
+micro_top.microprocessor.brainless_i2.pass
+micro_top.microprocessor.brainless_i2.acc_to_db
+micro_top.microprocessor.brainless_i2.read
+micro_top.microprocessor.brainless_i2.write
+@200
+-
+@22
+micro_top.microprocessor.data_in[3:0]
+[pattern_trace] 1
+[pattern_trace] 0

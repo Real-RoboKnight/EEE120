@@ -449,19 +449,20 @@ module controller (
   input [3:0] data_bus,
   input reset,
   input clk,
-  output [11:0] control
+  output [11:0] control,
+  output [3:0] instr_reg
 );
   wire [5:0] s0;
   wire [13:0] rom_out;
   wire [1:0] s1;
-  wire [3:0] instr_reg;
+  wire [3:0] instr_reg_temp;
   wire [1:0] step_reg;
   four_bit_reg four_bit_reg_i0 (
     .d( data_bus ),
     .enable( load_ir ),
     .reset( reset ),
     .clk( clk ),
-    .q( instr_reg )
+    .q( instr_reg_temp )
   );
   two_bit_reg two_bit_reg_i1 (
     .d( s1 ),
@@ -470,7 +471,7 @@ module controller (
     .clk( clk ),
     .q( step_reg )
   );
-  assign s0[5:2] = instr_reg;
+  assign s0[5:2] = instr_reg_temp;
   assign s0[1:0] = step_reg;
   // microcode ROM
   DIG_ROM_64X14_microcodeROM DIG_ROM_64X14_microcodeROM_i2 (
@@ -480,6 +481,7 @@ module controller (
   );
   assign control = rom_out[11:0];
   assign s1 = rom_out[13:12];
+  assign instr_reg = instr_reg_temp;
 endmodule
 
 module not_neg (
@@ -672,6 +674,11 @@ module DIG_RAMDualPort
     if (str)
       memory[A] <= Din;
   end
+  
+  initial
+  begin
+    $readmemh("ram_vals.txt",memory);
+  end
 endmodule
 
 
@@ -759,12 +766,72 @@ module brainless (
   assign accum = accum_temp;
   assign data_bus = data_bus_temp;
 endmodule
+module LUT_segmenter (
+    input \0 ,
+    input \1 ,
+    input \2 ,
+    input \3 ,
+    output reg  [6:0]  out
+);
+    reg [6:0] my_lut [0:15];
+    wire [3:0] temp;
+    assign temp = {\3 , \2 , \1 , \0 };
+
+    always @ (*) begin
+       out = my_lut[temp];
+    end
+
+    initial begin
+        my_lut[0] = 7'h40;
+        my_lut[1] = 7'h79;
+        my_lut[2] = 7'h24;
+        my_lut[3] = 7'h30;
+        my_lut[4] = 7'h19;
+        my_lut[5] = 7'h12;
+        my_lut[6] = 7'h2;
+        my_lut[7] = 7'h78;
+        my_lut[8] = 7'h0;
+        my_lut[9] = 7'h10;
+        my_lut[10] = 7'h8;
+        my_lut[11] = 7'h3;
+        my_lut[12] = 7'h46;
+        my_lut[13] = 7'h21;
+        my_lut[14] = 7'h6;
+        my_lut[15] = 7'he;
+    end
+endmodule
+
+
+module segments (
+  input [3:0] hex_in,
+  output [6:0] segs_out
+);
+  wire s0;
+  wire s1;
+  wire s2;
+  wire s3;
+  assign s0 = hex_in[0];
+  assign s1 = hex_in[1];
+  assign s2 = hex_in[2];
+  assign s3 = hex_in[3];
+  // segmenter
+  LUT_segmenter LUT_segmenter_i0 (
+    .\0 ( s0 ),
+    .\1 ( s1 ),
+    .\2 ( s2 ),
+    .\3 ( s3 ),
+    .out( segs_out )
+  );
+endmodule
 
 module microprocessor (
   input clk,
   input reset,
   input [3:0] data_in,
-  output [3:0] accum
+  output [6:0] accum,
+  output [6:0] addr_bus,
+  output [6:0] data_bus,
+  output [6:0] instr_reg
 );
   wire s0;
   wire [3:0] s1;
@@ -772,60 +839,81 @@ module microprocessor (
   wire s3;
   wire s4;
   wire s5;
-  wire [3:0] s6;
-  wire s7;
-  wire [11:0] s8;
-  wire s9;
-  wire s10;
+  wire s6;
+  wire [3:0] s7;
+  wire s8;
+  wire [11:0] s9;
+  wire [3:0] s10;
   wire s11;
   wire s12;
   wire s13;
   wire s14;
   wire s15;
+  wire s16;
+  wire s17;
+  wire [3:0] s18;
+  assign s2 = ~ reset;
   addr_gen addr_gen_i0 (
     .zero( s0 ),
     .data_bus( s1 ),
     .clk( clk ),
-    .reset( reset ),
-    .use_pc( s2 ),
-    .load_mar( s3 ),
-    .jump( s4 ),
-    .brz( s5 ),
-    .addr_bus( s6 )
+    .reset( s2 ),
+    .use_pc( s3 ),
+    .load_mar( s4 ),
+    .jump( s5 ),
+    .brz( s6 ),
+    .addr_bus( s7 )
   );
   controller controller_i1 (
-    .load_ir( s7 ),
+    .load_ir( s8 ),
     .data_bus( s1 ),
-    .reset( reset ),
+    .reset( s2 ),
     .clk( clk ),
-    .control( s8 )
+    .control( s9 ),
+    .instr_reg( s10 )
   );
   brainless brainless_i2 (
-    .addr_bus( s6 ),
+    .addr_bus( s7 ),
     .data_in( data_in ),
-    .arith( s9 ),
-    .invert( s10 ),
-    .pass( s11 ),
-    .load_acc( s12 ),
-    .acc_to_db( s13 ),
-    .read( s14 ),
-    .write( s15 ),
+    .arith( s11 ),
+    .invert( s12 ),
+    .pass( s13 ),
+    .load_acc( s14 ),
+    .acc_to_db( s15 ),
+    .read( s16 ),
+    .write( s17 ),
     .clk( clk ),
-    .reset( reset ),
-    .accum( accum ),
+    .reset( s2 ),
+    .accum( s18 ),
     .data_bus( s1 ),
     .zero( s0 )
   );
-  assign s9 = s8[7];
-  assign s10 = s8[6];
-  assign s11 = s8[5];
-  assign s12 = s8[4];
-  assign s13 = s8[3];
-  assign s14 = s8[2];
-  assign s15 = s8[1];
-  assign s2 = s8[9];
-  assign s3 = s8[8];
-  assign s4 = s8[10];
-  assign s5 = s8[11];
-  assign s7 = s8[0];
+  segments segments_i3 (
+    .hex_in( s7 ),
+    .segs_out( addr_bus )
+  );
+  segments segments_i4 (
+    .hex_in( s18 ),
+    .segs_out( accum )
+  );
+  segments segments_i5 (
+    .hex_in( s1 ),
+    .segs_out( data_bus )
+  );
+  segments segments_i6 (
+    .hex_in( s10 ),
+    .segs_out( instr_reg )
+  );
+  assign s11 = s9[7];
+  assign s12 = s9[6];
+  assign s13 = s9[5];
+  assign s14 = s9[4];
+  assign s15 = s9[3];
+  assign s16 = s9[2];
+  assign s17 = s9[1];
+  assign s3 = s9[9];
+  assign s4 = s9[8];
+  assign s5 = s9[10];
+  assign s6 = s9[11];
+  assign s8 = s9[0];
 endmodule

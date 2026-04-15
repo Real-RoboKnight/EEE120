@@ -1,0 +1,10 @@
+v2.0 raw
+0    # Load ACC with 2
+2
+5    # Subtract one
+1
+9    # Break loop if zero
+7
+8    # Jump to the subtract
+1
+2    #Stop
