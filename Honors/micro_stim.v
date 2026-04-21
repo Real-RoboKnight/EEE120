@@ -38,7 +38,7 @@ begin
    test_vals[ 8] = 12'h0_0_0;
    test_vals[ 9] = 12'h0_0_0;
    test_vals[10] = 12'h0_0_0;
-   test_vals[11] = 12'h0_8_0;
+   test_vals[11] = 12'h0_0_0;
    test_vals[12] = 12'h0_0_0;
    test_vals[13] = 12'h0_0_0;
    test_vals[14] = 12'h0_0_0;
@@ -58,7 +58,7 @@ begin
    test_vals[28] = 12'h0_0_0;
    test_vals[29] = 12'h0_0_0;
    test_vals[30] = 12'h0_0_0;
-   test_vals[31] = 12'h0_0_0;
+   test_vals[31] = 12'h0_8_0;
 end
 
 endmodule

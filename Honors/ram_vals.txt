@@ -1,11 +1,8 @@
-0 // Load ACC
-1 // a nonzero value
-9 // BRZ instruction
-9 // not taken since accum is not 0
-0 // LOAD ACC
-0 // zero!
-9 // BRZ instruction
-9 // branch to address A
-0 // Load ACC
-5 // this should be skipped!
-2 // STOP
+7    // Load ACC with Data In
+5    // Subtract one
+1
+9    // Break loop if zero
+6
+8    // Jump to the subtract
+0
+2    // Stop

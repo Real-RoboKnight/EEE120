@@ -2,10 +2,10 @@
 [*] GTKWave Analyzer v3.3.116 (w)1999-2023 BSI
 [*] Wed Apr 15 14:04:15 2026
 [*]
-[dumpfile] "/home/robocat/Documents/Homework/EEE120/Honors/micro_waves.vcd"
+[dumpfile] "/home/robocat/Documents/Homework/EEE120/Honors/micro_waves_default.vcd"
 [dumpfile_mtime] "Wed Apr 15 14:03:04 2026"
 [dumpfile_size] 52012
-[savefile] "/home/robocat/Documents/Homework/EEE120/Honors/micro_waves_loop.gtkw"
+[savefile] "/home/robocat/Documents/Homework/EEE120/Honors/micro_waves_default.gtkw"
 [timestart] 0
 [size] 1255 643
 [pos] -1 -1

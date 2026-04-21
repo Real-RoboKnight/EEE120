@@ -673,11 +673,12 @@ module DIG_RAMDualPort
   always @ (posedge C) begin
     if (str)
       memory[A] <= Din;
-  end
+  end  
   initial
   begin
     $readmemh("ram_vals.txt",memory);
   end 
+  
 endmodule
 
 
@@ -701,7 +702,6 @@ module program_ram (
     .ld( 1'b1 ),
     .D( data_out )
   );
-  
 endmodule
 
 module brainless (
@@ -767,7 +767,7 @@ module brainless (
   assign data_bus = data_bus_temp;
 endmodule
 
-module microprocessor (
+module microprocessor_old (
   input clk,
   input reset,
   input [3:0] data_in,
